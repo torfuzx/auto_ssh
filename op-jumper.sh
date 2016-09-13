@@ -5,5 +5,6 @@ user=""
 password=""
 secret=""
 
-verity_code=`python ./ga_code.py $secret`
-./auto_ssh.sh "ssh $user@$host" "$password" "$verity_code"
+path=$(cd `dirname $0`; pwd)
+verity_code=`python $path/ga_code.py $secret`
+$path/auto_ssh.sh "ssh $user@$host" "$password" "$verity_code"
